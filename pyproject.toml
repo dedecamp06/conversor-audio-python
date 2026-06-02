@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "auditoria-operacional-transcritor"
+version = "0.1.0"
+description = "Transcreve áudios e gera relatório de auditoria operacional em PDF."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "faster-whisper>=1.0.3",
+  "flask>=3.0.0",
+  "reportlab>=4.2.0",
+]
+
+[project.scripts]
+auditoria-relatorio = "auditoria_relatorio.controllers.cli_controller:main"
+auditoria-web = "auditoria_relatorio.web:main"
+
+[tool.setuptools]
+packages = [
+  "auditoria_relatorio",
+  "auditoria_relatorio.controllers",
+  "auditoria_relatorio.models",
+  "auditoria_relatorio.services",
+  "auditoria_relatorio.views",
+]
