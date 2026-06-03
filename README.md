@@ -11,14 +11,35 @@ Projeto em Python que:
 - Python 3.10+
 - Dependências do projeto
 
-## Instalação
+## Windows (modo fácil)
+
+Pré-requisito único: ter o **Python 3.10+** instalado (marque **"Add Python to PATH"**
+durante a instalação). Não é necessário instalar FFmpeg — o `faster-whisper` já traz
+o decodificador de áudio embutido.
+
+1. Baixe o projeto com `git clone` (recomendado) ou pelo botão **Code → Download ZIP** do GitHub e extraia.
+2. Dê **duplo-clique** no arquivo `iniciar_windows.bat`.
+
+Esse `.bat` cria o ambiente virtual, instala todas as dependências e abre o servidor.
+Depois é só acessar http://127.0.0.1:5000 no navegador.
+
+> Nas próximas vezes, basta dar duplo-clique no `iniciar_windows.bat` de novo.
+
+## Instalação (Linux / manual)
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip setuptools wheel
-python -m pip install .
+python -m pip install -r requirements.txt
 ```
+
+> Para rodar a web sem instalar o pacote, use:
+> `python -m auditoria_relatorio.web --host 127.0.0.1 --port 5000`
+>
+> Se preferir instalar o pacote e ganhar os comandos `auditoria-web` / `auditoria-relatorio`,
+> rode `python -m pip install .`. Em caso de erro de build no Windows (`WinError 183`),
+> apague as pastas antigas antes: `Remove-Item -Recurse -Force build, *.egg-info`.
 
 ## Uso rápido
 
